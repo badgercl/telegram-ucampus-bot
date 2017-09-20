@@ -58,7 +58,7 @@ else if(isset($m['query']) && strlen($m['query'])>2 ){
 function get_events($search, $db){
 	$search = str_clean($search);
     $json = get_eventos($db);
-    $out = [];
+	$out = [];
     foreach($json as $j){
         if(!isset($j['curso'])) continue;
         $cod = $j['curso']['codigo'].'-'.$j['curso']['seccion'];
@@ -168,6 +168,7 @@ function get_data($db){
 }
 
 function get_eventos($db){
+	global $ucampus_key;
 	$sql = "SELECT data FROM eventos_cache WHERE created_on >= NOW() - INTERVAL 30 MINUTE ORDER BY created_on DESC LIMIT 1";
     $res = DbConfig::sql($db, $sql);
     if($res){
