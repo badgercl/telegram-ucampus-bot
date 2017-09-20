@@ -1,2 +1,2 @@
 <?php
-require_once('/path/to/internal/config.php');
+require_once('/home/badger/ucampus_uchile/config.php');
